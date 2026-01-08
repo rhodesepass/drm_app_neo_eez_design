@@ -1,0 +1,28 @@
+#ifndef EEZ_LVGL_UI_EVENTS_H
+#define EEZ_LVGL_UI_EVENTS_H
+
+#include <lvgl/lvgl.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+extern void action_op_sel_cb(lv_event_t * e);
+extern void action_show_oplist(lv_event_t * e);
+extern void action_show_menu(lv_event_t * e);
+extern void action_show_sysinfo(lv_event_t * e);
+extern void action_shutdown(lv_event_t * e);
+extern void action_format_sd_card(lv_event_t * e);
+extern void action_screen_loaded_cb(lv_event_t * e);
+extern void action_displayimg_key(lv_event_t * e);
+extern void action_settings_ctrl_changed(lv_event_t * e);
+extern void action_restart_app(lv_event_t * e);
+extern void action_show_settings(lv_event_t * e);
+extern void action_show_files(lv_event_t * e);
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /*EEZ_LVGL_UI_EVENTS_H*/
