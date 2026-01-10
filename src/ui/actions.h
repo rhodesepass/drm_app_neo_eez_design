@@ -7,7 +7,6 @@
 extern "C" {
 #endif
 
-extern void action_op_sel_cb(lv_event_t * e);
 extern void action_show_oplist(lv_event_t * e);
 extern void action_show_menu(lv_event_t * e);
 extern void action_show_sysinfo(lv_event_t * e);

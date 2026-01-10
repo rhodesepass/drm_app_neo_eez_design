@@ -32,7 +32,7 @@ typedef enum {
     curr_screen_t_SCREEN_DISPLAYIMG = 4,
     curr_screen_t_SCREEN_FILEMANAGER = 5,
     curr_screen_t_SCREEN_SETTINGS = 6,
-    curr_screen_t_SCREEN_BATTERY_ALERT = 7
+    curr_screen_t_SCREEN_WARNING = 7
 } curr_screen_t;
 
 typedef enum {
@@ -50,7 +50,9 @@ enum FlowGlobalVariables {
     FLOW_GLOBAL_VARIABLE_NAND_PERCENT = 2,
     FLOW_GLOBAL_VARIABLE_SD_PERCENT = 3,
     FLOW_GLOBAL_VARIABLE_DISPLAYIMG_SIZE_LBL = 4,
-    FLOW_GLOBAL_VARIABLE_USB_MODE = 5
+    FLOW_GLOBAL_VARIABLE_USB_MODE = 5,
+    FLOW_GLOBAL_VARIABLE_WARNING_TITLE = 6,
+    FLOW_GLOBAL_VARIABLE_WARNING_DESC = 7
 };
 
 // Native global variables
@@ -77,6 +79,10 @@ extern const char *get_var_displayimg_size_lbl();
 extern void set_var_displayimg_size_lbl(const char *value);
 extern usb_mode_t get_var_usb_mode();
 extern void set_var_usb_mode(usb_mode_t value);
+extern const char *get_var_warning_title();
+extern void set_var_warning_title(const char *value);
+extern const char *get_var_warning_desc();
+extern void set_var_warning_desc(const char *value);
 
 
 #ifdef __cplusplus

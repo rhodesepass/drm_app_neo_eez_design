@@ -23,7 +23,7 @@ typedef struct _objects_t {
     lv_obj_t *displayimg;
     lv_obj_t *filemanager;
     lv_obj_t *settings;
-    lv_obj_t *battery_alert;
+    lv_obj_t *warning;
     lv_obj_t *oplst_btn;
     lv_obj_t *sett_btn;
     lv_obj_t *dev_btn;
@@ -32,34 +32,39 @@ typedef struct _objects_t {
     lv_obj_t *restart_app_btn;
     lv_obj_t *shutdown_btn;
     lv_obj_t *obj0;
-    lv_obj_t *btn1;
+    lv_obj_t *oplst_container;
     lv_obj_t *obj1;
-    lv_obj_t *btn2;
+    lv_obj_t *obj1__opbtn;
+    lv_obj_t *obj1__oplogo;
+    lv_obj_t *obj1__opdesc;
+    lv_obj_t *obj1__opname;
     lv_obj_t *obj2;
-    lv_obj_t *btn3;
-    lv_obj_t *obj3;
-    lv_obj_t *btn4;
-    lv_obj_t *obj4;
+    lv_obj_t *obj2__opbtn;
+    lv_obj_t *obj2__oplogo;
+    lv_obj_t *obj2__opdesc;
+    lv_obj_t *obj2__opname;
     lv_obj_t *mainmenu_btn;
+    lv_obj_t *obj3;
+    lv_obj_t *obj4;
     lv_obj_t *obj5;
+    lv_obj_t *back_btn;
     lv_obj_t *obj6;
     lv_obj_t *obj7;
-    lv_obj_t *back_btn;
     lv_obj_t *obj8;
     lv_obj_t *obj9;
     lv_obj_t *obj10;
-    lv_obj_t *obj11;
-    lv_obj_t *obj12;
     lv_obj_t *disp_img_obj;
-    lv_obj_t *obj13;
+    lv_obj_t *obj11;
     lv_obj_t *file_container;
-    lv_obj_t *swmode_dropdown;
-    lv_obj_t *swint_dropdown;
-    lv_obj_t *usbmode_dropdown;
     lv_obj_t *lowbat_trip;
     lv_obj_t *no_intro_block;
     lv_obj_t *no_overlay_block;
+    lv_obj_t *swmode_dropdown;
+    lv_obj_t *swint_dropdown;
+    lv_obj_t *usbmode_dropdown;
     lv_obj_t *back_btn_1;
+    lv_obj_t *obj12;
+    lv_obj_t *obj13;
     lv_obj_t *obj14;
 } objects_t;
 
@@ -73,7 +78,7 @@ enum ScreensEnum {
     SCREEN_ID_DISPLAYIMG = 5,
     SCREEN_ID_FILEMANAGER = 6,
     SCREEN_ID_SETTINGS = 7,
-    SCREEN_ID_BATTERY_ALERT = 8,
+    SCREEN_ID_WARNING = 8,
 };
 
 void create_screen_mainmenu();
@@ -97,8 +102,8 @@ void tick_screen_filemanager();
 void create_screen_settings();
 void tick_screen_settings();
 
-void create_screen_battery_alert();
-void tick_screen_battery_alert();
+void create_screen_warning();
+void tick_screen_warning();
 
 void create_user_widget_operator_entry(lv_obj_t *parent_obj, int startWidgetIndex);
 void tick_user_widget_operator_entry(int startWidgetIndex);

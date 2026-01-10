@@ -40,6 +40,11 @@ lv_style_t *get_style_fa_label_MAIN_DEFAULT();
 void add_style_fa_label(lv_obj_t *obj);
 void remove_style_fa_label(lv_obj_t *obj);
 
+// Style: op_entry
+lv_style_t *get_style_op_entry_MAIN_DEFAULT();
+void add_style_op_entry(lv_obj_t *obj);
+void remove_style_op_entry(lv_obj_t *obj);
+
 
 
 #ifdef __cplusplus
