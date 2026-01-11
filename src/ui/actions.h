@@ -18,6 +18,7 @@ extern void action_settings_ctrl_changed(lv_event_t * e);
 extern void action_restart_app(lv_event_t * e);
 extern void action_show_settings(lv_event_t * e);
 extern void action_show_files(lv_event_t * e);
+extern void action_show_dispimg(lv_event_t * e);
 
 
 #ifdef __cplusplus

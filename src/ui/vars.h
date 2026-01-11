@@ -52,7 +52,9 @@ enum FlowGlobalVariables {
     FLOW_GLOBAL_VARIABLE_DISPLAYIMG_SIZE_LBL = 4,
     FLOW_GLOBAL_VARIABLE_USB_MODE = 5,
     FLOW_GLOBAL_VARIABLE_WARNING_TITLE = 6,
-    FLOW_GLOBAL_VARIABLE_WARNING_DESC = 7
+    FLOW_GLOBAL_VARIABLE_WARNING_DESC = 7,
+    FLOW_GLOBAL_VARIABLE_DISPIMG_SHOW_WARNING = 8,
+    FLOW_GLOBAL_VARIABLE_DISPIMG_PATH = 9
 };
 
 // Native global variables
@@ -83,6 +85,10 @@ extern const char *get_var_warning_title();
 extern void set_var_warning_title(const char *value);
 extern const char *get_var_warning_desc();
 extern void set_var_warning_desc(const char *value);
+extern bool get_var_dispimg_show_warning();
+extern void set_var_dispimg_show_warning(bool value);
+extern const char *get_var_dispimg_path();
+extern void set_var_dispimg_path(const char *value);
 
 
 #ifdef __cplusplus

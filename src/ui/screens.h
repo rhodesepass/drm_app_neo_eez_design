@@ -28,6 +28,7 @@ typedef struct _objects_t {
     lv_obj_t *sett_btn;
     lv_obj_t *dev_btn;
     lv_obj_t *file_btn;
+    lv_obj_t *dispimg_btn;
     lv_obj_t *brightness_scroller;
     lv_obj_t *restart_app_btn;
     lv_obj_t *shutdown_btn;
@@ -53,7 +54,9 @@ typedef struct _objects_t {
     lv_obj_t *obj8;
     lv_obj_t *obj9;
     lv_obj_t *obj10;
-    lv_obj_t *disp_img_obj;
+    lv_obj_t *dispimg_no_pic_label;
+    lv_obj_t *dispimg_lbl_path;
+    lv_obj_t *dispimg_container;
     lv_obj_t *obj11;
     lv_obj_t *file_container;
     lv_obj_t *lowbat_trip;

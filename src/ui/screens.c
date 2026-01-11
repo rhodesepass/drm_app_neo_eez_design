@@ -26,6 +26,7 @@ static void event_handler_cb_mainmenu_mainmenu(lv_event_t *e) {
         lv_group_add_obj(groups.op, objects.sett_btn);
         lv_group_add_obj(groups.op, objects.dev_btn);
         lv_group_add_obj(groups.op, objects.file_btn);
+        lv_group_add_obj(groups.op, objects.dispimg_btn);
         lv_group_add_obj(groups.op, objects.brightness_scroller);
         lv_group_add_obj(groups.op, objects.restart_app_btn);
         lv_group_add_obj(groups.op, objects.shutdown_btn);
@@ -317,6 +318,33 @@ void create_screen_mainmenu() {
             }
         }
         {
+            // dispimg_btn
+            lv_obj_t *obj = lv_button_create(parent_obj);
+            objects.dispimg_btn = obj;
+            lv_obj_set_pos(obj, 129, 172);
+            lv_obj_set_size(obj, 97, 112);
+            lv_obj_add_event_cb(obj, action_show_dispimg, LV_EVENT_PRESSED, (void *)0);
+            add_style_main_btn(obj);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 10, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_fa_label(obj);
+                    lv_label_set_text(obj, "");
+                }
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 1, 34);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_label_large(obj);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "扩列图");
+                }
+            }
+        }
+        {
             // brightness_scroller
             lv_obj_t *obj = lv_slider_create(parent_obj);
             objects.brightness_scroller = obj;
@@ -423,7 +451,7 @@ void create_screen_oplist() {
                     lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    create_user_widget_operator_entry(obj, 18);
+                    create_user_widget_operator_entry(obj, 19);
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE);
                     add_style_op_entry(obj);
                 }
@@ -438,7 +466,7 @@ void create_screen_oplist() {
                     lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    create_user_widget_operator_entry(obj, 23);
+                    create_user_widget_operator_entry(obj, 24);
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE);
                     add_style_op_entry(obj);
                 }
@@ -482,8 +510,8 @@ void create_screen_oplist() {
 }
 
 void tick_screen_oplist() {
-    tick_user_widget_operator_entry(18);
-    tick_user_widget_operator_entry(23);
+    tick_user_widget_operator_entry(19);
+    tick_user_widget_operator_entry(24);
 }
 
 void create_screen_sysinfo() {
@@ -740,12 +768,37 @@ void create_screen_displayimg() {
             lv_label_set_text(obj, "");
         }
         {
-            // disp_img_obj
-            lv_obj_t *obj = lv_image_create(parent_obj);
-            objects.disp_img_obj = obj;
+            // dispimg_no_pic_label
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            objects.dispimg_no_pic_label = obj;
+            lv_obj_set_pos(obj, 48, 119);
+            lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+            add_style_label_large(obj);
+            lv_label_set_text(obj, "Prts Warning:\n设备内没有扩列信息图...\n请将图片复制到\n/app/dispimg");
+        }
+        {
+            // dispimg_lbl_path
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            objects.dispimg_lbl_path = obj;
+            lv_obj_set_pos(obj, 0, 620);
+            lv_obj_set_size(obj, LV_PCT(100), 16);
+            lv_label_set_long_mode(obj, LV_LABEL_LONG_DOT);
+            add_style_label_small(obj);
+            lv_label_set_text(obj, "");
+        }
+        {
+            // dispimg_container
+            lv_obj_t *obj = lv_obj_create(parent_obj);
+            objects.dispimg_container = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, LV_PCT(100), LV_PCT(100));
-            lv_image_set_src(obj, &img_oplogo);
+            lv_obj_set_size(obj, 360, 640);
+            lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_pad_top(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_radius(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
         }
     }
     
@@ -759,6 +812,25 @@ void tick_screen_displayimg() {
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj11;
             lv_label_set_text(objects.obj11, new_val);
+            tick_value_change_obj = NULL;
+        }
+    }
+    {
+        bool new_val = get_var_dispimg_show_warning();
+        bool cur_val = lv_obj_has_flag(objects.dispimg_no_pic_label, LV_OBJ_FLAG_HIDDEN);
+        if (new_val != cur_val) {
+            tick_value_change_obj = objects.dispimg_no_pic_label;
+            if (new_val) lv_obj_add_flag(objects.dispimg_no_pic_label, LV_OBJ_FLAG_HIDDEN);
+            else lv_obj_clear_flag(objects.dispimg_no_pic_label, LV_OBJ_FLAG_HIDDEN);
+            tick_value_change_obj = NULL;
+        }
+    }
+    {
+        const char *new_val = get_var_dispimg_path();
+        const char *cur_val = lv_label_get_text(objects.dispimg_lbl_path);
+        if (strcmp(new_val, cur_val) != 0) {
+            tick_value_change_obj = objects.dispimg_lbl_path;
+            lv_label_set_text(objects.dispimg_lbl_path, new_val);
             tick_value_change_obj = NULL;
         }
     }
@@ -830,7 +902,7 @@ void create_screen_settings() {
             lv_obj_set_pos(obj, 22, 49);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             add_style_label_large(obj);
-            lv_label_set_text(obj, "低压保护出口软压板");
+            lv_label_set_text(obj, "低电量自动关机");
         }
         {
             // no_intro_block
@@ -845,7 +917,7 @@ void create_screen_settings() {
             lv_obj_set_pos(obj, 22, 93);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             add_style_label_large(obj);
-            lv_label_set_text(obj, "闭锁入场动画软压板");
+            lv_label_set_text(obj, "(切换时)跳过入场动画");
         }
         {
             // no_overlay_block
@@ -860,7 +932,7 @@ void create_screen_settings() {
             lv_obj_set_pos(obj, 22, 136);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             add_style_label_large(obj);
-            lv_label_set_text(obj, "闭锁干员信息软压板");
+            lv_label_set_text(obj, "(切换时)不显示信息层");
         }
         {
             lv_obj_t *obj = lv_label_create(parent_obj);
