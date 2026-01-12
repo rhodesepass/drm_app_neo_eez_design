@@ -24,6 +24,7 @@ typedef struct _objects_t {
     lv_obj_t *filemanager;
     lv_obj_t *settings;
     lv_obj_t *warning;
+    lv_obj_t *confirm;
     lv_obj_t *oplst_btn;
     lv_obj_t *sett_btn;
     lv_obj_t *dev_btn;
@@ -47,8 +48,8 @@ typedef struct _objects_t {
     lv_obj_t *mainmenu_btn;
     lv_obj_t *obj3;
     lv_obj_t *obj4;
-    lv_obj_t *obj5;
     lv_obj_t *back_btn;
+    lv_obj_t *obj5;
     lv_obj_t *obj6;
     lv_obj_t *obj7;
     lv_obj_t *obj8;
@@ -69,6 +70,10 @@ typedef struct _objects_t {
     lv_obj_t *obj12;
     lv_obj_t *obj13;
     lv_obj_t *obj14;
+    lv_obj_t *obj15;
+    lv_obj_t *back_btn_2;
+    lv_obj_t *obj16;
+    lv_obj_t *obj17;
 } objects_t;
 
 extern objects_t objects;
@@ -82,6 +87,7 @@ enum ScreensEnum {
     SCREEN_ID_FILEMANAGER = 6,
     SCREEN_ID_SETTINGS = 7,
     SCREEN_ID_WARNING = 8,
+    SCREEN_ID_CONFIRM = 9,
 };
 
 void create_screen_mainmenu();
@@ -107,6 +113,9 @@ void tick_screen_settings();
 
 void create_screen_warning();
 void tick_screen_warning();
+
+void create_screen_confirm();
+void tick_screen_confirm();
 
 void create_user_widget_operator_entry(lv_obj_t *parent_obj, int startWidgetIndex);
 void tick_user_widget_operator_entry(int startWidgetIndex);

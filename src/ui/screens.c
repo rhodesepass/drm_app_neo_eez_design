@@ -58,8 +58,8 @@ static void event_handler_cb_sysinfo_sysinfo(lv_event_t *e) {
     if (event == LV_EVENT_SCREEN_LOAD_START) {
         // group: op
         lv_group_remove_all_objs(groups.op);
-        lv_group_add_obj(groups.op, objects.obj5);
         lv_group_add_obj(groups.op, objects.back_btn);
+        lv_group_add_obj(groups.op, objects.obj5);
     }
 }
 
@@ -162,6 +162,16 @@ static void event_handler_cb_warning_warning(lv_event_t *e) {
     if (event == LV_EVENT_SCREEN_LOAD_START) {
         // group: op
         lv_group_remove_all_objs(groups.op);
+    }
+}
+
+static void event_handler_cb_confirm_confirm(lv_event_t *e) {
+    lv_event_code_t event = lv_event_get_code(e);
+    if (event == LV_EVENT_SCREEN_LOAD_START) {
+        // group: op
+        lv_group_remove_all_objs(groups.op);
+        lv_group_add_obj(groups.op, objects.back_btn_2);
+        lv_group_add_obj(groups.op, objects.obj16);
     }
 }
 
@@ -451,7 +461,7 @@ void create_screen_oplist() {
                     lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    create_user_widget_operator_entry(obj, 19);
+                    create_user_widget_operator_entry(obj, 20);
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE);
                     add_style_op_entry(obj);
                 }
@@ -466,7 +476,7 @@ void create_screen_oplist() {
                     lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    create_user_widget_operator_entry(obj, 24);
+                    create_user_widget_operator_entry(obj, 25);
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE);
                     add_style_op_entry(obj);
                 }
@@ -510,8 +520,8 @@ void create_screen_oplist() {
 }
 
 void tick_screen_oplist() {
-    tick_user_widget_operator_entry(19);
-    tick_user_widget_operator_entry(24);
+    tick_user_widget_operator_entry(20);
+    tick_user_widget_operator_entry(25);
 }
 
 void create_screen_sysinfo() {
@@ -585,17 +595,36 @@ void create_screen_sysinfo() {
         {
             lv_obj_t *obj = lv_label_create(parent_obj);
             objects.obj8 = obj;
-            lv_obj_set_pos(obj, 22, 210);
-            lv_obj_set_size(obj, 309, 340);
+            lv_obj_set_pos(obj, 12, 210);
+            lv_obj_set_size(obj, 335, 370);
             lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_ON);
             lv_obj_set_scroll_dir(obj, LV_DIR_VER);
             add_style_label_small(obj);
             lv_label_set_text(obj, "");
         }
         {
+            // back_btn
+            lv_obj_t *obj = lv_button_create(parent_obj);
+            objects.back_btn = obj;
+            lv_obj_set_pos(obj, 27, 581);
+            lv_obj_set_size(obj, 149, 51);
+            lv_obj_add_event_cb(obj, action_show_menu, LV_EVENT_PRESSED, (void *)2);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 0, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_label_large(obj);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "返回");
+                }
+            }
+        }
+        {
             lv_obj_t *obj = lv_button_create(parent_obj);
             objects.obj5 = obj;
-            lv_obj_set_pos(obj, 27, 559);
+            lv_obj_set_pos(obj, 186, 580);
             lv_obj_set_size(obj, 147, 52);
             lv_obj_add_event_cb(obj, action_format_sd_card, LV_EVENT_PRESSED, (void *)0);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0xff8c0f0f), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -608,25 +637,6 @@ void create_screen_sysinfo() {
                     add_style_label_large(obj);
                     lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_label_set_text(obj, "格式化SD卡");
-                }
-            }
-        }
-        {
-            // back_btn
-            lv_obj_t *obj = lv_button_create(parent_obj);
-            objects.back_btn = obj;
-            lv_obj_set_pos(obj, 184, 559);
-            lv_obj_set_size(obj, 149, 51);
-            lv_obj_add_event_cb(obj, action_show_menu, LV_EVENT_PRESSED, (void *)2);
-            {
-                lv_obj_t *parent_obj = obj;
-                {
-                    lv_obj_t *obj = lv_label_create(parent_obj);
-                    lv_obj_set_pos(obj, 0, 0);
-                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-                    add_style_label_large(obj);
-                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_label_set_text(obj, "返回");
                 }
             }
         }
@@ -1116,6 +1126,103 @@ void tick_screen_warning() {
     }
 }
 
+void create_screen_confirm() {
+    lv_obj_t *obj = lv_obj_create(0);
+    objects.confirm = obj;
+    lv_obj_set_pos(obj, 0, 0);
+    lv_obj_set_size(obj, 360, 640);
+    lv_obj_add_event_cb(obj, action_screen_loaded_cb, LV_EVENT_SCREEN_LOADED, (void *)8);
+    lv_obj_add_event_cb(obj, event_handler_cb_confirm_confirm, LV_EVENT_ALL, 0);
+    lv_obj_set_style_bg_color(obj, lv_color_hex(0xff9b861f), LV_PART_MAIN | LV_STATE_DEFAULT);
+    {
+        lv_obj_t *parent_obj = obj;
+        {
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            lv_obj_set_pos(obj, 14, 4);
+            lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+            add_style_fa_label(obj);
+            lv_label_set_text(obj, "");
+        }
+        {
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            objects.obj17 = obj;
+            lv_obj_set_pos(obj, 83, 37);
+            lv_obj_set_size(obj, 262, LV_SIZE_CONTENT);
+            add_style_label_large(obj);
+            lv_label_set_text(obj, "");
+        }
+        {
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            lv_obj_set_pos(obj, 83, 4);
+            lv_obj_set_size(obj, 196, LV_SIZE_CONTENT);
+            add_style_label_large(obj);
+            lv_label_set_text(obj, "=PRTS二次确认=");
+        }
+        {
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            objects.obj15 = obj;
+            lv_obj_set_pos(obj, 261, -2);
+            lv_obj_set_size(obj, 99, 68);
+            lv_obj_set_style_text_color(obj, lv_color_hex(0xffb9b1b1), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_RIGHT, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_label_set_text(obj, "=>Secound\nConfirm");
+        }
+        {
+            // back_btn_2
+            lv_obj_t *obj = lv_button_create(parent_obj);
+            objects.back_btn_2 = obj;
+            lv_obj_set_pos(obj, 28, 70);
+            lv_obj_set_size(obj, 149, 51);
+            lv_obj_add_event_cb(obj, action_confirm_cancel, LV_EVENT_PRESSED, (void *)2);
+            lv_obj_set_style_bg_color(obj, lv_color_hex(0xff6c6666), LV_PART_MAIN | LV_STATE_DEFAULT);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 0, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_label_large(obj);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "取消");
+                }
+            }
+        }
+        {
+            lv_obj_t *obj = lv_button_create(parent_obj);
+            objects.obj16 = obj;
+            lv_obj_set_pos(obj, 187, 69);
+            lv_obj_set_size(obj, 147, 52);
+            lv_obj_add_event_cb(obj, action_confirm_proceed, LV_EVENT_PRESSED, (void *)0);
+            lv_obj_set_style_bg_color(obj, lv_color_hex(0xffb10a0a), LV_PART_MAIN | LV_STATE_DEFAULT);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 0, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_label_large(obj);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "确定");
+                }
+            }
+        }
+    }
+    
+    tick_screen_confirm();
+}
+
+void tick_screen_confirm() {
+    {
+        const char *new_val = get_var_confirm_title();
+        const char *cur_val = lv_label_get_text(objects.obj17);
+        if (strcmp(new_val, cur_val) != 0) {
+            tick_value_change_obj = objects.obj17;
+            lv_label_set_text(objects.obj17, new_val);
+            tick_value_change_obj = NULL;
+        }
+    }
+}
+
 void create_user_widget_operator_entry(lv_obj_t *parent_obj, int startWidgetIndex) {
     (void)startWidgetIndex;
     lv_obj_t *obj = parent_obj;
@@ -1188,6 +1295,7 @@ tick_screen_func_t tick_screen_funcs[] = {
     tick_screen_filemanager,
     tick_screen_settings,
     tick_screen_warning,
+    tick_screen_confirm,
 };
 void tick_screen(int screen_index) {
     tick_screen_funcs[screen_index]();
@@ -1211,4 +1319,5 @@ void create_screens() {
     create_screen_filemanager();
     create_screen_settings();
     create_screen_warning();
+    create_screen_confirm();
 }
