@@ -3,14 +3,14 @@
     "selectedUserPageObject": "[epass.eez-project]:/userPages/4",
     "selectedUserWidgetObject": "[epass.eez-project]:/userWidgets/0",
     "selectedActionObject": "[epass.eez-project]:/actions/10",
-    "selectedGlobalVariableObject": "[epass.eez-project]:/variables/globalVariables/14",
+    "selectedGlobalVariableObject": "[epass.eez-project]:/variables/globalVariables/15",
     "selectedEnumObject": "[epass.eez-project]:/variables/enums/2",
     "selectedStyleObject": "[epass.eez-project]:/lvglStyles/styles/0",
-    "selectedFontObject": "[epass.eez-project]:/fonts/3",
-    "selectedGlyphObject": "[epass.eez-project]:/fonts/3/glyphs/11",
+    "selectedFontObject": "[epass.eez-project]:/fonts/1",
+    "selectedGlyphObject": "[epass.eez-project]:/fonts/1/glyphs/-1",
     "selectedLvglGroupObject": "[epass.eez-project]:/lvglGroups/groups/0",
     "subnavigationSelectedItems": {
-      "variables-tab/sub-navigation/selected-item": "Global"
+      "variables-tab/sub-navigation/selected-item": "Enums"
     }
   },
   "layoutModel": {
@@ -79,7 +79,7 @@
           },
           {
             "type": "border",
-            "selected": 0,
+            "selected": 1,
             "size": 107.64062309265137,
             "location": "bottom",
             "children": [
@@ -164,7 +164,7 @@
                 {
                   "type": "tabset",
                   "id": "#168d4468-6f66-453f-ba81-db0ef3491f50",
-                  "weight": 0.8296077041730937,
+                  "weight": 1.598760253920745,
                   "enableClose": false,
                   "children": [
                     {
@@ -180,7 +180,7 @@
                 {
                   "type": "tabset",
                   "id": "#641339a3-9f15-40e1-b252-47fdc6ed2fb8",
-                  "weight": 1.0213379469434831,
+                  "weight": 0.25218539719583183,
                   "enableClose": false,
                   "children": [
                     {
@@ -199,20 +199,31 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 51.852295887783235,
-              "selected": 5,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
-                  "id": "#2dc55be0-7d05-4431-9b6c-5fc7d5f131b6",
-                  "name": "fontawesome",
+                  "id": "#bb8a3625-5d75-467c-9627-dea1cda82d62",
+                  "name": "Settings",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[epass.eez-project]:/fonts/3",
+                    "objectPath": "[epass.eez-project]:/settings",
+                    "subObjectPath": "[epass.eez-project]:/settings",
                     "permanent": false
                   },
-                  "icon": "material:font_download"
+                  "icon": "material:settings"
+                },
+                {
+                  "type": "tab",
+                  "id": "#bdb818b9-6147-4460-8cac-c4294ad613ad",
+                  "name": "settings",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[epass.eez-project]:/userPages/6",
+                    "permanent": false
+                  },
+                  "icon": "svg:page"
                 },
                 {
                   "type": "tab",
@@ -227,40 +238,6 @@
                 },
                 {
                   "type": "tab",
-                  "id": "#d1ad1e30-b04e-4fe6-9aa1-596115039cd5",
-                  "name": "sourcehan_reg_14",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[epass.eez-project]:/fonts/0",
-                    "permanent": true
-                  },
-                  "icon": "material:font_download"
-                },
-                {
-                  "type": "tab",
-                  "id": "#5e18063b-28a0-4149-a954-09cde2db66f3",
-                  "name": "sourceselif_heavy_24",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[epass.eez-project]:/fonts/1",
-                    "permanent": true
-                  },
-                  "icon": "material:font_download"
-                },
-                {
-                  "type": "tab",
-                  "id": "#f1ed48bb-8d34-47aa-8265-4e0ba137b017",
-                  "name": "Settings",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[epass.eez-project]:/settings",
-                    "subObjectPath": "[epass.eez-project]:/settings",
-                    "permanent": false
-                  },
-                  "icon": "material:settings"
-                },
-                {
-                  "type": "tab",
                   "id": "#df818e5e-c829-41c7-99c1-8ab5d483ff72",
                   "name": "displayimg",
                   "component": "editor",
@@ -270,8 +247,7 @@
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -291,7 +267,8 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -1044,19 +1021,19 @@
         "0": {
           "2": {},
           "5": {},
+          "6": {},
+          "7": {},
           "8": {},
-          "9": {
-            "$selected": true
-          },
+          "9": {},
           "12": {}
         }
       },
       "transform": {
         "translate": {
-          "x": -174,
-          "y": -232.66668701171875
+          "x": -119.37500000000003,
+          "y": -221.08465385437012
         },
-        "scale": 1
+        "scale": 0.75
       },
       "timeline": {
         "isEditorActive": false,
@@ -1071,13 +1048,15 @@
           "0": {},
           "1": {},
           "7": {},
-          "8": {}
+          "8": {},
+          "9": {},
+          "10": {}
         }
       },
       "transform": {
         "translate": {
           "x": -181,
-          "y": -185.5
+          "y": -285.5
         },
         "scale": 1
       },
@@ -1146,7 +1125,7 @@
           "x": -118.80000000000004,
           "y": -241.47356109619147
         },
-        "scale": 1
+        "scale": 0.75
       },
       "timeline": {
         "isEditorActive": false,
@@ -1162,9 +1141,9 @@
       "transform": {
         "translate": {
           "x": -119.49999999999999,
-          "y": -292.3871536254883
+          "y": 107.61284637451172
         },
-        "scale": 1
+        "scale": 0.75
       },
       "timeline": {
         "isEditorActive": false,
@@ -1175,12 +1154,18 @@
     },
     "[epass.eez-project]:/userPages/7[flow-state]": {
       "selection": {
-        "0": {}
+        "0": {
+          "0": {},
+          "1": {},
+          "2": {
+            "$selected": true
+          }
+        }
       },
       "transform": {
         "translate": {
-          "x": -286.43754196167,
-          "y": -446.6326767921448
+          "x": -298.031296157837,
+          "y": -147.26208903312687
         },
         "scale": 1
       },
@@ -1196,9 +1181,9 @@
       "transform": {
         "translate": {
           "x": -180,
-          "y": -320
+          "y": -120
         },
-        "scale": 1
+        "scale": 0.75
       },
       "timeline": {
         "isEditorActive": false,
@@ -1210,9 +1195,7 @@
     "[epass.eez-project]:/userWidgets/0[flow-state]": {
       "selection": {
         "0": {
-          "1": {
-            "$selected": true
-          }
+          "1": {}
         }
       },
       "transform": {
@@ -1220,7 +1203,7 @@
           "x": -150,
           "y": -32
         },
-        "scale": 1
+        "scale": 0.75
       },
       "timeline": {
         "isEditorActive": false,
@@ -1232,6 +1215,27 @@
     "[epass.eez-project]:/lvglStyles/styles[tree-state]": {
       "0": {
         "$selected": true
+      }
+    },
+    "[epass.eez-project]:/userPages/8[flow-state]": {
+      "selection": {
+        "0": {
+          "4": {},
+          "5": {}
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -170.5,
+          "y": -198.5762322165749
+        },
+        "scale": 1
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
       }
     }
   },
@@ -1251,11 +1255,10 @@
   "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
     "TEXT",
-    "PADDING",
-    "MARGIN"
+    "BACKGROUND"
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 1,
+  "flowZoom": 0.75,
   "implementationLanguage": "C"
 }

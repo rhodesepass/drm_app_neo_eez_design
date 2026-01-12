@@ -26,10 +26,10 @@ typedef struct _objects_t {
     lv_obj_t *warning;
     lv_obj_t *confirm;
     lv_obj_t *oplst_btn;
+    lv_obj_t *dispimg_btn;
+    lv_obj_t *file_btn;
     lv_obj_t *sett_btn;
     lv_obj_t *dev_btn;
-    lv_obj_t *file_btn;
-    lv_obj_t *dispimg_btn;
     lv_obj_t *brightness_scroller;
     lv_obj_t *restart_app_btn;
     lv_obj_t *shutdown_btn;

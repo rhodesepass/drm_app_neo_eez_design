@@ -23,10 +23,10 @@ static void event_handler_cb_mainmenu_mainmenu(lv_event_t *e) {
         // group: op
         lv_group_remove_all_objs(groups.op);
         lv_group_add_obj(groups.op, objects.oplst_btn);
+        lv_group_add_obj(groups.op, objects.dispimg_btn);
+        lv_group_add_obj(groups.op, objects.file_btn);
         lv_group_add_obj(groups.op, objects.sett_btn);
         lv_group_add_obj(groups.op, objects.dev_btn);
-        lv_group_add_obj(groups.op, objects.file_btn);
-        lv_group_add_obj(groups.op, objects.dispimg_btn);
         lv_group_add_obj(groups.op, objects.brightness_scroller);
         lv_group_add_obj(groups.op, objects.restart_app_btn);
         lv_group_add_obj(groups.op, objects.shutdown_btn);
@@ -247,10 +247,64 @@ void create_screen_mainmenu() {
             }
         }
         {
+            // dispimg_btn
+            lv_obj_t *obj = lv_button_create(parent_obj);
+            objects.dispimg_btn = obj;
+            lv_obj_set_pos(obj, 128, 52);
+            lv_obj_set_size(obj, 97, 112);
+            lv_obj_add_event_cb(obj, action_show_dispimg, LV_EVENT_PRESSED, (void *)0);
+            add_style_main_btn(obj);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 10, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_fa_label(obj);
+                    lv_label_set_text(obj, "");
+                }
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 1, 34);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_label_large(obj);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "扩列图");
+                }
+            }
+        }
+        {
+            // file_btn
+            lv_obj_t *obj = lv_button_create(parent_obj);
+            objects.file_btn = obj;
+            lv_obj_set_pos(obj, 232, 52);
+            lv_obj_set_size(obj, 97, 112);
+            lv_obj_add_event_cb(obj, action_show_files, LV_EVENT_PRESSED, (void *)0);
+            add_style_main_btn(obj);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 10, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_fa_label(obj);
+                    lv_label_set_text(obj, "");
+                }
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 1, 34);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_label_large(obj);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "文件");
+                }
+            }
+        }
+        {
             // sett_btn
             lv_obj_t *obj = lv_button_create(parent_obj);
             objects.sett_btn = obj;
-            lv_obj_set_pos(obj, 129, 52);
+            lv_obj_set_pos(obj, 24, 170);
             lv_obj_set_size(obj, 97, 112);
             lv_obj_add_event_cb(obj, action_show_settings, LV_EVENT_PRESSED, (void *)0);
             add_style_main_btn(obj);
@@ -277,7 +331,7 @@ void create_screen_mainmenu() {
             // dev_btn
             lv_obj_t *obj = lv_button_create(parent_obj);
             objects.dev_btn = obj;
-            lv_obj_set_pos(obj, 235, 52);
+            lv_obj_set_pos(obj, 128, 170);
             lv_obj_set_size(obj, 97, 112);
             lv_obj_add_event_cb(obj, action_show_sysinfo, LV_EVENT_PRESSED, (void *)0);
             add_style_main_btn(obj);
@@ -297,60 +351,6 @@ void create_screen_mainmenu() {
                     add_style_label_large(obj);
                     lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_label_set_text(obj, "设备");
-                }
-            }
-        }
-        {
-            // file_btn
-            lv_obj_t *obj = lv_button_create(parent_obj);
-            objects.file_btn = obj;
-            lv_obj_set_pos(obj, 24, 172);
-            lv_obj_set_size(obj, 97, 112);
-            lv_obj_add_event_cb(obj, action_show_files, LV_EVENT_PRESSED, (void *)0);
-            add_style_main_btn(obj);
-            {
-                lv_obj_t *parent_obj = obj;
-                {
-                    lv_obj_t *obj = lv_label_create(parent_obj);
-                    lv_obj_set_pos(obj, 10, 0);
-                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-                    add_style_fa_label(obj);
-                    lv_label_set_text(obj, "");
-                }
-                {
-                    lv_obj_t *obj = lv_label_create(parent_obj);
-                    lv_obj_set_pos(obj, 1, 34);
-                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-                    add_style_label_large(obj);
-                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_label_set_text(obj, "文件");
-                }
-            }
-        }
-        {
-            // dispimg_btn
-            lv_obj_t *obj = lv_button_create(parent_obj);
-            objects.dispimg_btn = obj;
-            lv_obj_set_pos(obj, 129, 172);
-            lv_obj_set_size(obj, 97, 112);
-            lv_obj_add_event_cb(obj, action_show_dispimg, LV_EVENT_PRESSED, (void *)0);
-            add_style_main_btn(obj);
-            {
-                lv_obj_t *parent_obj = obj;
-                {
-                    lv_obj_t *obj = lv_label_create(parent_obj);
-                    lv_obj_set_pos(obj, 10, 0);
-                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-                    add_style_fa_label(obj);
-                    lv_label_set_text(obj, "");
-                }
-                {
-                    lv_obj_t *obj = lv_label_create(parent_obj);
-                    lv_obj_set_pos(obj, 1, 34);
-                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-                    add_style_label_large(obj);
-                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_label_set_text(obj, "扩列图");
                 }
             }
         }
