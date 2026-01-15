@@ -60,6 +60,7 @@ typedef struct _objects_t {
     lv_obj_t *dispimg_container;
     lv_obj_t *obj11;
     lv_obj_t *file_container;
+    lv_obj_t *clear_cache_btn;
     lv_obj_t *lowbat_trip;
     lv_obj_t *no_intro_block;
     lv_obj_t *no_overlay_block;

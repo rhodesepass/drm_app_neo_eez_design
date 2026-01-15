@@ -114,6 +114,7 @@ static void event_handler_cb_settings_settings(lv_event_t *e) {
     if (event == LV_EVENT_SCREEN_LOAD_START) {
         // group: op
         lv_group_remove_all_objs(groups.op);
+        lv_group_add_obj(groups.op, objects.clear_cache_btn);
         lv_group_add_obj(groups.op, objects.lowbat_trip);
         lv_group_add_obj(groups.op, objects.no_intro_block);
         lv_group_add_obj(groups.op, objects.no_overlay_block);
@@ -892,6 +893,25 @@ void create_screen_settings() {
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             add_style_label_large(obj);
             lv_label_set_text(obj, "设备参数定值");
+        }
+        {
+            // clear_cache_btn
+            lv_obj_t *obj = lv_button_create(parent_obj);
+            objects.clear_cache_btn = obj;
+            lv_obj_set_pos(obj, 205, 8);
+            lv_obj_set_size(obj, 82, 32);
+            lv_obj_add_event_cb(obj, action_clear_cache, LV_EVENT_PRESSED, (void *)0);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 0, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_label_small(obj);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "清除缓存");
+                }
+            }
         }
         {
             lv_obj_t *obj = lv_image_create(parent_obj);
