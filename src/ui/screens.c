@@ -975,7 +975,7 @@ void create_screen_settings() {
             objects.swint_dropdown = obj;
             lv_obj_set_pos(obj, 195, 210);
             lv_obj_set_size(obj, 144, LV_SIZE_CONTENT);
-            lv_dropdown_set_options(obj, "1分钟\n5分钟\n10分钟\n30分钟");
+            lv_dropdown_set_options(obj, "1分钟\n3分钟\n5分钟\n10分钟\n30分钟");
             lv_obj_add_event_cb(obj, event_handler_cb_settings_swint_dropdown, LV_EVENT_ALL, 0);
             lv_obj_set_style_text_font(obj, &ui_font_sourcesans_reg_14, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_text_font(obj, &ui_font_sourcesans_reg_14, LV_PART_SELECTED | LV_STATE_DEFAULT);
