@@ -60,21 +60,22 @@ typedef struct _objects_t {
     lv_obj_t *dispimg_container;
     lv_obj_t *obj11;
     lv_obj_t *file_container;
-    lv_obj_t *clear_cache_btn;
+    lv_obj_t *dummybtn;
     lv_obj_t *lowbat_trip;
     lv_obj_t *no_intro_block;
     lv_obj_t *no_overlay_block;
     lv_obj_t *swmode_dropdown;
     lv_obj_t *swint_dropdown;
     lv_obj_t *usbmode_dropdown;
-    lv_obj_t *back_btn_1;
     lv_obj_t *obj12;
+    lv_obj_t *back_btn_1;
     lv_obj_t *obj13;
     lv_obj_t *obj14;
     lv_obj_t *obj15;
-    lv_obj_t *back_btn_2;
     lv_obj_t *obj16;
+    lv_obj_t *back_btn_2;
     lv_obj_t *obj17;
+    lv_obj_t *obj18;
 } objects_t;
 
 extern objects_t objects;
