@@ -1,6 +1,6 @@
 # DRM APP Neo 的EEZ Studio设计工程及输出
 
-EEZ 版本：V0.24.0
+EEZ 版本：V0.25.1
 
 ## 为什么要分开成独立的repo？
 

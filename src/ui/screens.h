@@ -28,10 +28,10 @@ typedef struct _objects_t {
     lv_obj_t *applist;
     lv_obj_t *oplst_btn;
     lv_obj_t *dispimg_btn;
+    lv_obj_t *apps_btn;
     lv_obj_t *file_btn;
     lv_obj_t *sett_btn;
     lv_obj_t *dev_btn;
-    lv_obj_t *apps_btn;
     lv_obj_t *brightness_scroller;
     lv_obj_t *restart_app_btn;
     lv_obj_t *shutdown_btn;
@@ -42,11 +42,13 @@ typedef struct _objects_t {
     lv_obj_t *obj1__oplogo;
     lv_obj_t *obj1__opdesc;
     lv_obj_t *obj1__opname;
+    lv_obj_t *obj1__sd_flag_1;
     lv_obj_t *obj2;
     lv_obj_t *obj2__opbtn;
     lv_obj_t *obj2__oplogo;
     lv_obj_t *obj2__opdesc;
     lv_obj_t *obj2__opname;
+    lv_obj_t *obj2__sd_flag_1;
     lv_obj_t *mainmenu_btn;
     lv_obj_t *obj3;
     lv_obj_t *obj4;
@@ -80,16 +82,21 @@ typedef struct _objects_t {
     lv_obj_t *obj18;
     lv_obj_t *app_container;
     lv_obj_t *obj19;
-    lv_obj_t *obj19__opbtn_1;
+    lv_obj_t *obj19__appbtn;
     lv_obj_t *obj19__applogo;
-    lv_obj_t *obj19__opdesc_1;
-    lv_obj_t *obj19__opname_1;
+    lv_obj_t *obj19__appdesc;
+    lv_obj_t *obj19__appname;
+    lv_obj_t *obj19__bgfg_flag;
+    lv_obj_t *obj19__sd_flag;
     lv_obj_t *obj20;
-    lv_obj_t *obj20__opbtn_1;
+    lv_obj_t *obj20__appbtn;
     lv_obj_t *obj20__applogo;
-    lv_obj_t *obj20__opdesc_1;
-    lv_obj_t *obj20__opname_1;
+    lv_obj_t *obj20__appdesc;
+    lv_obj_t *obj20__appname;
+    lv_obj_t *obj20__bgfg_flag;
+    lv_obj_t *obj20__sd_flag;
     lv_obj_t *applist_back_btn;
+    lv_obj_t *applist_no_app_label;
 } objects_t;
 
 extern objects_t objects;
@@ -140,8 +147,8 @@ void tick_screen_applist();
 void create_user_widget_operator_entry(lv_obj_t *parent_obj, int startWidgetIndex);
 void tick_user_widget_operator_entry(int startWidgetIndex);
 
-void create_user_widget_app_list(lv_obj_t *parent_obj, int startWidgetIndex);
-void tick_user_widget_app_list(int startWidgetIndex);
+void create_user_widget_app_entry(lv_obj_t *parent_obj, int startWidgetIndex);
+void tick_user_widget_app_entry(int startWidgetIndex);
 
 void tick_screen_by_id(enum ScreensEnum screenId);
 void tick_screen(int screen_index);

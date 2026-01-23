@@ -45,6 +45,26 @@ lv_style_t *get_style_op_entry_MAIN_DEFAULT();
 void add_style_op_entry(lv_obj_t *obj);
 void remove_style_op_entry(lv_obj_t *obj);
 
+// Style: sd_flag
+lv_style_t *get_style_sd_flag_MAIN_DEFAULT();
+void add_style_sd_flag(lv_obj_t *obj);
+void remove_style_sd_flag(lv_obj_t *obj);
+
+// Style: app_bg_running
+lv_style_t *get_style_app_bg_running_MAIN_DEFAULT();
+void add_style_app_bg_running(lv_obj_t *obj);
+void remove_style_app_bg_running(lv_obj_t *obj);
+
+// Style: app_fg
+lv_style_t *get_style_app_fg_MAIN_DEFAULT();
+void add_style_app_fg(lv_obj_t *obj);
+void remove_style_app_fg(lv_obj_t *obj);
+
+// Style: app_bg_notrunning
+lv_style_t *get_style_app_bg_notrunning_MAIN_DEFAULT();
+void add_style_app_bg_notrunning(lv_obj_t *obj);
+void remove_style_app_bg_notrunning(lv_obj_t *obj);
+
 
 
 #ifdef __cplusplus

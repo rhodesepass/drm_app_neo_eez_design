@@ -24,10 +24,10 @@ static void event_handler_cb_mainmenu_mainmenu(lv_event_t *e) {
         lv_group_remove_all_objs(groups.op);
         lv_group_add_obj(groups.op, objects.oplst_btn);
         lv_group_add_obj(groups.op, objects.dispimg_btn);
+        lv_group_add_obj(groups.op, objects.apps_btn);
         lv_group_add_obj(groups.op, objects.file_btn);
         lv_group_add_obj(groups.op, objects.sett_btn);
         lv_group_add_obj(groups.op, objects.dev_btn);
-        lv_group_add_obj(groups.op, objects.apps_btn);
         lv_group_add_obj(groups.op, objects.brightness_scroller);
         lv_group_add_obj(groups.op, objects.restart_app_btn);
         lv_group_add_obj(groups.op, objects.shutdown_btn);
@@ -183,6 +183,7 @@ static void event_handler_cb_applist_applist(lv_event_t *e) {
     if (event == LV_EVENT_SCREEN_LOAD_START) {
         // group: op
         lv_group_remove_all_objs(groups.op);
+        lv_group_add_obj(groups.op, objects.applist_back_btn);
     }
 }
 
@@ -210,31 +211,33 @@ void create_screen_mainmenu() {
         }
         {
             lv_obj_t *obj = lv_label_create(parent_obj);
-            lv_obj_set_pos(obj, 19, 296);
+            lv_obj_set_pos(obj, 25, 285);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-            add_style_label_large(obj);
-            lv_label_set_text(obj, "亮度");
+            add_style_fa_label(obj);
+            lv_obj_set_style_transform_scale_x(obj, 100, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_transform_scale_y(obj, 100, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_label_set_text(obj, "");
         }
         {
             lv_obj_t *obj = lv_label_create(parent_obj);
             objects.obj0 = obj;
-            lv_obj_set_pos(obj, 154, 391);
+            lv_obj_set_pos(obj, 157, 376);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             add_style_label_small(obj);
             lv_label_set_text(obj, "");
         }
         {
             lv_obj_t *obj = lv_label_create(parent_obj);
-            lv_obj_set_pos(obj, 20, 391);
+            lv_obj_set_pos(obj, 23, 376);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             add_style_label_small(obj);
-            lv_label_set_text(obj, "电子通行证播放程序\n罗德岛工程部 白银 1097. \nhttps://github.com/rhodesepass");
+            lv_label_set_text(obj, "电子通行证播放程序\n罗德岛工程部 白银 <inapp@iccmc.cc> Et al.2026 \n本项目是开源的自由硬件.不带任何形式的保证.\n作者不获取任何利润 github.com/rhodesepass");
         }
         {
             // oplst_btn
             lv_obj_t *obj = lv_button_create(parent_obj);
             objects.oplst_btn = obj;
-            lv_obj_set_pos(obj, 23, 52);
+            lv_obj_set_pos(obj, 25, 48);
             lv_obj_set_size(obj, 97, 112);
             lv_obj_add_event_cb(obj, action_show_oplist, LV_EVENT_PRESSED, (void *)0);
             add_style_main_btn(obj);
@@ -261,7 +264,7 @@ void create_screen_mainmenu() {
             // dispimg_btn
             lv_obj_t *obj = lv_button_create(parent_obj);
             objects.dispimg_btn = obj;
-            lv_obj_set_pos(obj, 128, 52);
+            lv_obj_set_pos(obj, 130, 48);
             lv_obj_set_size(obj, 97, 112);
             lv_obj_add_event_cb(obj, action_show_dispimg, LV_EVENT_PRESSED, (void *)0);
             add_style_main_btn(obj);
@@ -269,10 +272,12 @@ void create_screen_mainmenu() {
                 lv_obj_t *parent_obj = obj;
                 {
                     lv_obj_t *obj = lv_label_create(parent_obj);
-                    lv_obj_set_pos(obj, 10, 0);
+                    lv_obj_set_pos(obj, 2, 0);
                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                     add_style_fa_label(obj);
-                    lv_label_set_text(obj, "");
+                    lv_obj_set_style_transform_scale_x(obj, 240, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_transform_scale_y(obj, 240, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "");
                 }
                 {
                     lv_obj_t *obj = lv_label_create(parent_obj);
@@ -285,10 +290,39 @@ void create_screen_mainmenu() {
             }
         }
         {
+            // apps_btn
+            lv_obj_t *obj = lv_button_create(parent_obj);
+            objects.apps_btn = obj;
+            lv_obj_set_pos(obj, 235, 48);
+            lv_obj_set_size(obj, 97, 112);
+            lv_obj_add_event_cb(obj, action_show_apps, LV_EVENT_PRESSED, (void *)0);
+            add_style_main_btn(obj);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 4, 1);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_fa_label(obj);
+                    lv_obj_set_style_transform_scale_x(obj, 250, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_transform_scale_y(obj, 250, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "");
+                }
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 1, 34);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_label_large(obj);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "应用");
+                }
+            }
+        }
+        {
             // file_btn
             lv_obj_t *obj = lv_button_create(parent_obj);
             objects.file_btn = obj;
-            lv_obj_set_pos(obj, 232, 52);
+            lv_obj_set_pos(obj, 25, 166);
             lv_obj_set_size(obj, 97, 112);
             lv_obj_add_event_cb(obj, action_show_files, LV_EVENT_PRESSED, (void *)0);
             add_style_main_btn(obj);
@@ -315,7 +349,7 @@ void create_screen_mainmenu() {
             // sett_btn
             lv_obj_t *obj = lv_button_create(parent_obj);
             objects.sett_btn = obj;
-            lv_obj_set_pos(obj, 24, 170);
+            lv_obj_set_pos(obj, 130, 166);
             lv_obj_set_size(obj, 97, 112);
             lv_obj_add_event_cb(obj, action_show_settings, LV_EVENT_PRESSED, (void *)0);
             add_style_main_btn(obj);
@@ -323,9 +357,11 @@ void create_screen_mainmenu() {
                 lv_obj_t *parent_obj = obj;
                 {
                     lv_obj_t *obj = lv_label_create(parent_obj);
-                    lv_obj_set_pos(obj, 3, 0);
+                    lv_obj_set_pos(obj, 4, 0);
                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                     add_style_fa_label(obj);
+                    lv_obj_set_style_transform_scale_x(obj, 250, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_transform_scale_y(obj, 250, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_label_set_text(obj, "");
                 }
                 {
@@ -342,7 +378,7 @@ void create_screen_mainmenu() {
             // dev_btn
             lv_obj_t *obj = lv_button_create(parent_obj);
             objects.dev_btn = obj;
-            lv_obj_set_pos(obj, 128, 170);
+            lv_obj_set_pos(obj, 235, 166);
             lv_obj_set_size(obj, 97, 112);
             lv_obj_add_event_cb(obj, action_show_sysinfo, LV_EVENT_PRESSED, (void *)0);
             add_style_main_btn(obj);
@@ -366,38 +402,11 @@ void create_screen_mainmenu() {
             }
         }
         {
-            // apps_btn
-            lv_obj_t *obj = lv_button_create(parent_obj);
-            objects.apps_btn = obj;
-            lv_obj_set_pos(obj, 232, 170);
-            lv_obj_set_size(obj, 97, 112);
-            lv_obj_add_event_cb(obj, action_show_apps, LV_EVENT_PRESSED, (void *)0);
-            add_style_main_btn(obj);
-            {
-                lv_obj_t *parent_obj = obj;
-                {
-                    lv_obj_t *obj = lv_label_create(parent_obj);
-                    lv_obj_set_pos(obj, 4, 0);
-                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-                    add_style_fa_label(obj);
-                    lv_label_set_text(obj, "");
-                }
-                {
-                    lv_obj_t *obj = lv_label_create(parent_obj);
-                    lv_obj_set_pos(obj, 1, 34);
-                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-                    add_style_label_large(obj);
-                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_label_set_text(obj, "应用");
-                }
-            }
-        }
-        {
             // brightness_scroller
             lv_obj_t *obj = lv_slider_create(parent_obj);
             objects.brightness_scroller = obj;
-            lv_obj_set_pos(obj, 84, 304);
-            lv_obj_set_size(obj, 251, 13);
+            lv_obj_set_pos(obj, 59, 292);
+            lv_obj_set_size(obj, 273, 13);
             lv_slider_set_range(obj, 1, 9);
             lv_obj_add_event_cb(obj, event_handler_cb_mainmenu_brightness_scroller, LV_EVENT_ALL, 0);
         }
@@ -405,8 +414,8 @@ void create_screen_mainmenu() {
             // restart_app_btn
             lv_obj_t *obj = lv_button_create(parent_obj);
             objects.restart_app_btn = obj;
-            lv_obj_set_pos(obj, 19, 328);
-            lv_obj_set_size(obj, 153, 52);
+            lv_obj_set_pos(obj, 26, 316);
+            lv_obj_set_size(obj, 148, 52);
             lv_obj_add_event_cb(obj, action_restart_app, LV_EVENT_PRESSED, (void *)0);
             add_style_main_small_btn(obj);
             {
@@ -425,8 +434,8 @@ void create_screen_mainmenu() {
             // shutdown_btn
             lv_obj_t *obj = lv_button_create(parent_obj);
             objects.shutdown_btn = obj;
-            lv_obj_set_pos(obj, 177, 329);
-            lv_obj_set_size(obj, 158, 52);
+            lv_obj_set_pos(obj, 183, 317);
+            lv_obj_set_size(obj, 149, 52);
             lv_obj_add_event_cb(obj, action_shutdown, LV_EVENT_PRESSED, (void *)0);
             add_style_main_small_btn(obj);
             {
@@ -514,7 +523,7 @@ void create_screen_oplist() {
                     lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    create_user_widget_operator_entry(obj, 27);
+                    create_user_widget_operator_entry(obj, 28);
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE);
                     add_style_op_entry(obj);
                 }
@@ -559,7 +568,7 @@ void create_screen_oplist() {
 
 void tick_screen_oplist() {
     tick_user_widget_operator_entry(22);
-    tick_user_widget_operator_entry(27);
+    tick_user_widget_operator_entry(28);
 }
 
 void create_screen_sysinfo() {
@@ -821,7 +830,7 @@ void create_screen_displayimg() {
             lv_obj_set_pos(obj, 48, 119);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             add_style_label_large(obj);
-            lv_label_set_text(obj, "Prts Warning:\n设备内没有扩列信息图...\n请将图片复制到\n/app/dispimg");
+            lv_label_set_text(obj, "Prts Warning:\n设备内没有扩列信息图...\n请将图片复制到\n/dispimg");
         }
         {
             // dispimg_lbl_path
@@ -1342,7 +1351,7 @@ void create_screen_applist() {
                     lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    create_user_widget_app_list(obj, 64);
+                    create_user_widget_app_entry(obj, 66);
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE);
                     add_style_op_entry(obj);
                 }
@@ -1357,7 +1366,7 @@ void create_screen_applist() {
                     lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    create_user_widget_app_list(obj, 69);
+                    create_user_widget_app_entry(obj, 73);
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE);
                     add_style_op_entry(obj);
                 }
@@ -1382,14 +1391,33 @@ void create_screen_applist() {
                 }
             }
         }
+        {
+            // applist_no_app_label
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            objects.applist_no_app_label = obj;
+            lv_obj_set_pos(obj, 67, 203);
+            lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+            add_style_label_large(obj);
+            lv_label_set_text(obj, "设备内没有应用程序\n请将程序安装到\n/app");
+        }
     }
     
     tick_screen_applist();
 }
 
 void tick_screen_applist() {
-    tick_user_widget_app_list(64);
-    tick_user_widget_app_list(69);
+    tick_user_widget_app_entry(66);
+    tick_user_widget_app_entry(73);
+    {
+        bool new_val = get_var_dispimg_show_warning();
+        bool cur_val = lv_obj_has_flag(objects.applist_no_app_label, LV_OBJ_FLAG_HIDDEN);
+        if (new_val != cur_val) {
+            tick_value_change_obj = objects.applist_no_app_label;
+            if (new_val) lv_obj_add_flag(objects.applist_no_app_label, LV_OBJ_FLAG_HIDDEN);
+            else lv_obj_clear_flag(objects.applist_no_app_label, LV_OBJ_FLAG_HIDDEN);
+            tick_value_change_obj = NULL;
+        }
+    }
 }
 
 void create_user_widget_operator_entry(lv_obj_t *parent_obj, int startWidgetIndex) {
@@ -1420,8 +1448,7 @@ void create_user_widget_operator_entry(lv_obj_t *parent_obj, int startWidgetInde
                     lv_obj_t *obj = lv_label_create(parent_obj);
                     ((lv_obj_t **)&objects)[startWidgetIndex + 2] = obj;
                     lv_obj_set_pos(obj, 68, 32);
-                    lv_obj_set_size(obj, 232, 32);
-                    lv_label_set_long_mode(obj, LV_LABEL_LONG_DOT);
+                    lv_obj_set_size(obj, 213, 32);
                     add_style_label_small(obj);
                     lv_obj_set_style_text_line_space(obj, -1, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_label_set_text(obj, "谁不喜欢能天使呢？\n素材作者: 白银。");
@@ -1436,6 +1463,15 @@ void create_user_widget_operator_entry(lv_obj_t *parent_obj, int startWidgetInde
                     add_style_label_large(obj);
                     lv_label_set_text(obj, "新约能天使-EP测试1233");
                 }
+                {
+                    // sd_flag_1
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    ((lv_obj_t **)&objects)[startWidgetIndex + 4] = obj;
+                    lv_obj_set_pos(obj, 281, 47);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_sd_flag(obj);
+                    lv_label_set_text(obj, "SD");
+                }
             }
         }
     }
@@ -1445,13 +1481,13 @@ void tick_user_widget_operator_entry(int startWidgetIndex) {
     (void)startWidgetIndex;
 }
 
-void create_user_widget_app_list(lv_obj_t *parent_obj, int startWidgetIndex) {
+void create_user_widget_app_entry(lv_obj_t *parent_obj, int startWidgetIndex) {
     (void)startWidgetIndex;
     lv_obj_t *obj = parent_obj;
     {
         lv_obj_t *parent_obj = obj;
         {
-            // opbtn_1
+            // appbtn
             lv_obj_t *obj = lv_button_create(parent_obj);
             ((lv_obj_t **)&objects)[startWidgetIndex + 0] = obj;
             lv_obj_set_pos(obj, 0, 0);
@@ -1469,32 +1505,49 @@ void create_user_widget_app_list(lv_obj_t *parent_obj, int startWidgetIndex) {
                     lv_image_set_inner_align(obj, LV_IMAGE_ALIGN_STRETCH);
                 }
                 {
-                    // opdesc_1
+                    // appdesc
                     lv_obj_t *obj = lv_label_create(parent_obj);
                     ((lv_obj_t **)&objects)[startWidgetIndex + 2] = obj;
                     lv_obj_set_pos(obj, 68, 32);
-                    lv_obj_set_size(obj, 232, 32);
-                    lv_label_set_long_mode(obj, LV_LABEL_LONG_DOT);
+                    lv_obj_set_size(obj, 245, 32);
                     add_style_label_small(obj);
                     lv_obj_set_style_text_line_space(obj, -1, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_label_set_text(obj, "白银白银我们喜欢你！！！\n作者: 伊卡洛斯sama");
+                    lv_label_set_text(obj, "白银白银我们喜欢你！！！上看见看\n作者: 伊卡洛斯sama我喜欢你我喜欢你");
                 }
                 {
-                    // opname_1
+                    // appname
                     lv_obj_t *obj = lv_label_create(parent_obj);
                     ((lv_obj_t **)&objects)[startWidgetIndex + 3] = obj;
                     lv_obj_set_pos(obj, 68, 0);
-                    lv_obj_set_size(obj, 232, 32);
+                    lv_obj_set_size(obj, 266, 32);
                     lv_label_set_long_mode(obj, LV_LABEL_LONG_SCROLL_CIRCULAR);
                     add_style_label_large(obj);
-                    lv_label_set_text(obj, "白银测试app2233");
+                    lv_label_set_text(obj, "白银测试app2233伊卡洛斯sama我喜欢你");
+                }
+                {
+                    // bgfg_flag
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    ((lv_obj_t **)&objects)[startWidgetIndex + 4] = obj;
+                    lv_obj_set_pos(obj, 303, 47);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_app_bg_running(obj);
+                    lv_label_set_text(obj, "后台");
+                }
+                {
+                    // sd_flag
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    ((lv_obj_t **)&objects)[startWidgetIndex + 5] = obj;
+                    lv_obj_set_pos(obj, 313, 30);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_sd_flag(obj);
+                    lv_label_set_text(obj, "SD");
                 }
             }
         }
     }
 }
 
-void tick_user_widget_app_list(int startWidgetIndex) {
+void tick_user_widget_app_entry(int startWidgetIndex) {
     (void)startWidgetIndex;
 }
 

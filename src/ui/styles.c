@@ -256,6 +256,131 @@ void remove_style_op_entry(lv_obj_t *obj) {
 };
 
 //
+// Style: sd_flag
+//
+
+void init_style_sd_flag_MAIN_DEFAULT(lv_style_t *style) {
+    lv_style_set_bg_opa(style, 255);
+    lv_style_set_bg_color(style, lv_color_hex(0xff2c3cbd));
+    lv_style_set_pad_top(style, 0);
+    lv_style_set_pad_bottom(style, 0);
+    lv_style_set_pad_left(style, 2);
+    lv_style_set_pad_right(style, 2);
+    lv_style_set_radius(style, 15);
+    lv_style_set_text_font(style, &ui_font_sourcesans_reg_14);
+};
+
+lv_style_t *get_style_sd_flag_MAIN_DEFAULT() {
+    static lv_style_t *style;
+    if (!style) {
+        style = (lv_style_t *)lv_malloc(sizeof(lv_style_t));
+        lv_style_init(style);
+        init_style_sd_flag_MAIN_DEFAULT(style);
+    }
+    return style;
+};
+
+void add_style_sd_flag(lv_obj_t *obj) {
+    (void)obj;
+    lv_obj_add_style(obj, get_style_sd_flag_MAIN_DEFAULT(), LV_PART_MAIN | LV_STATE_DEFAULT);
+};
+
+void remove_style_sd_flag(lv_obj_t *obj) {
+    (void)obj;
+    lv_obj_remove_style(obj, get_style_sd_flag_MAIN_DEFAULT(), LV_PART_MAIN | LV_STATE_DEFAULT);
+};
+
+//
+// Style: app_bg_running
+//
+
+void init_style_app_bg_running_MAIN_DEFAULT(lv_style_t *style) {
+    init_style_sd_flag_MAIN_DEFAULT(style);
+    
+    lv_style_set_bg_color(style, lv_color_hex(0xff23910a));
+};
+
+lv_style_t *get_style_app_bg_running_MAIN_DEFAULT() {
+    static lv_style_t *style;
+    if (!style) {
+        style = (lv_style_t *)lv_malloc(sizeof(lv_style_t));
+        lv_style_init(style);
+        init_style_app_bg_running_MAIN_DEFAULT(style);
+    }
+    return style;
+};
+
+void add_style_app_bg_running(lv_obj_t *obj) {
+    (void)obj;
+    lv_obj_add_style(obj, get_style_app_bg_running_MAIN_DEFAULT(), LV_PART_MAIN | LV_STATE_DEFAULT);
+};
+
+void remove_style_app_bg_running(lv_obj_t *obj) {
+    (void)obj;
+    lv_obj_remove_style(obj, get_style_app_bg_running_MAIN_DEFAULT(), LV_PART_MAIN | LV_STATE_DEFAULT);
+};
+
+//
+// Style: app_fg
+//
+
+void init_style_app_fg_MAIN_DEFAULT(lv_style_t *style) {
+    init_style_sd_flag_MAIN_DEFAULT(style);
+    
+    lv_style_set_bg_color(style, lv_color_hex(0xffb3550c));
+};
+
+lv_style_t *get_style_app_fg_MAIN_DEFAULT() {
+    static lv_style_t *style;
+    if (!style) {
+        style = (lv_style_t *)lv_malloc(sizeof(lv_style_t));
+        lv_style_init(style);
+        init_style_app_fg_MAIN_DEFAULT(style);
+    }
+    return style;
+};
+
+void add_style_app_fg(lv_obj_t *obj) {
+    (void)obj;
+    lv_obj_add_style(obj, get_style_app_fg_MAIN_DEFAULT(), LV_PART_MAIN | LV_STATE_DEFAULT);
+};
+
+void remove_style_app_fg(lv_obj_t *obj) {
+    (void)obj;
+    lv_obj_remove_style(obj, get_style_app_fg_MAIN_DEFAULT(), LV_PART_MAIN | LV_STATE_DEFAULT);
+};
+
+//
+// Style: app_bg_notrunning
+//
+
+void init_style_app_bg_notrunning_MAIN_DEFAULT(lv_style_t *style) {
+    init_style_sd_flag_MAIN_DEFAULT(style);
+    
+    lv_style_set_bg_color(style, lv_color_hex(0xff919197));
+};
+
+lv_style_t *get_style_app_bg_notrunning_MAIN_DEFAULT() {
+    static lv_style_t *style;
+    if (!style) {
+        style = (lv_style_t *)lv_malloc(sizeof(lv_style_t));
+        lv_style_init(style);
+        init_style_app_bg_notrunning_MAIN_DEFAULT(style);
+    }
+    return style;
+};
+
+void add_style_app_bg_notrunning(lv_obj_t *obj) {
+    (void)obj;
+    lv_obj_add_style(obj, get_style_app_bg_notrunning_MAIN_DEFAULT(), LV_PART_MAIN | LV_STATE_DEFAULT);
+};
+
+void remove_style_app_bg_notrunning(lv_obj_t *obj) {
+    (void)obj;
+    lv_obj_remove_style(obj, get_style_app_bg_notrunning_MAIN_DEFAULT(), LV_PART_MAIN | LV_STATE_DEFAULT);
+};
+
+//
 //
 //
 
@@ -269,6 +394,10 @@ void add_style(lv_obj_t *obj, int32_t styleIndex) {
         add_style_main_small_btn,
         add_style_fa_label,
         add_style_op_entry,
+        add_style_sd_flag,
+        add_style_app_bg_running,
+        add_style_app_fg,
+        add_style_app_bg_notrunning,
     };
     add_style_funcs[styleIndex](obj);
 }
@@ -283,6 +412,10 @@ void remove_style(lv_obj_t *obj, int32_t styleIndex) {
         remove_style_main_small_btn,
         remove_style_fa_label,
         remove_style_op_entry,
+        remove_style_sd_flag,
+        remove_style_app_bg_running,
+        remove_style_app_fg,
+        remove_style_app_bg_notrunning,
     };
     remove_style_funcs[styleIndex](obj);
 }
