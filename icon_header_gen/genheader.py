@@ -35,6 +35,9 @@ with open("icons.h","w",encoding="utf-8") as f:
     for code in codes:
         if code in unicode_to_name:
             name = unicode_to_name[code].upper().replace("-","_")
-            f.write(f"#define UI_ICON_{name} \"\\u{code}\"\n")
+            if len(code) == 2:
+                f.write(f"#define UI_ICON_{name} \"\\x{code}\"\n")
+            else:
+                f.write(f"#define UI_ICON_{name} \"\\u{code}\"\n")
         else:
             print(f"Warning: No name found for unicode {code}")

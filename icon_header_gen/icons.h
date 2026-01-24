@@ -23,7 +23,7 @@
 #define UI_ICON_LOCATION_CROSSHAIRS "\uf601"
 #define UI_ICON_XMARK "\uf00d"
 #define UI_ICON_CHECK "\uf00c"
-#define UI_ICON_QUESTION "\u3f"
+#define UI_ICON_QUESTION "\x3f"
 #define UI_ICON_SHIELD "\uf132"
 #define UI_ICON_CAR_BURST "\uf5e1"
 #define UI_ICON_BORDER_NONE "\uf850"
