@@ -1,13 +1,13 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[epass.eez-project]:/userPages/5",
+    "selectedUserPageObject": "[epass.eez-project]:/userPages/7",
     "selectedUserWidgetObject": "[epass.eez-project]:/userWidgets/1",
     "selectedActionObject": "[epass.eez-project]:/actions/11",
     "selectedGlobalVariableObject": "[epass.eez-project]:/variables/globalVariables/15",
     "selectedEnumObject": "[epass.eez-project]:/variables/enums/2",
     "selectedStyleObject": "[epass.eez-project]:/lvglStyles/styles/0",
     "selectedFontObject": "[epass.eez-project]:/fonts/3",
-    "selectedGlyphObject": "[epass.eez-project]:/fonts/3/glyphs/5",
+    "selectedGlyphObject": "[epass.eez-project]:/fonts/3/glyphs/-1",
     "selectedLvglGroupObject": "[epass.eez-project]:/lvglGroups/groups/0",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Enums"
@@ -79,7 +79,7 @@
           },
           {
             "type": "border",
-            "selected": 0,
+            "selected": 1,
             "size": 107.64062309265137,
             "location": "bottom",
             "children": [
@@ -127,7 +127,7 @@
             {
               "type": "row",
               "id": "#fb3bc161-c7b6-43e7-a619-26775cf05c8e",
-              "weight": 27.09507253326939,
+              "weight": 16.52541984535832,
               "children": [
                 {
                   "type": "tabset",
@@ -198,7 +198,7 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 34.167976905388734,
+              "weight": 66.81900799495673,
               "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
@@ -217,10 +217,10 @@
                 {
                   "type": "tab",
                   "id": "#854bf93a-7f1f-4d1a-ab83-9b6ce243e401",
-                  "name": "filemanager",
+                  "name": "warning",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[epass.eez-project]:/userPages/5",
+                    "objectPath": "[epass.eez-project]:/userPages/7",
                     "permanent": false
                   },
                   "icon": "svg:page"
@@ -231,7 +231,7 @@
             {
               "type": "row",
               "id": "#b3ca72c9-dc60-4828-9ad8-51a4b566b2fc",
-              "weight": 38.73695056134188,
+              "weight": 16.655572159684997,
               "children": [
                 {
                   "type": "tabset",
@@ -598,6 +598,7 @@
             {
               "type": "tabset",
               "id": "#a1f67269-461d-4654-8505-bcecfa16cba3",
+              "weight": 170.0854700854701,
               "enableDrop": false,
               "enableDrag": false,
               "enableClose": false,
@@ -615,6 +616,7 @@
             {
               "type": "tabset",
               "id": "#a2902986-ed66-4565-8ea1-506c491d6b3d",
+              "weight": 29.914529914529915,
               "enableDrop": false,
               "enableDrag": false,
               "enableClose": false,
@@ -1145,16 +1147,13 @@
       "selection": {
         "0": {
           "0": {},
-          "1": {},
-          "2": {
-            "$selected": true
-          }
+          "1": {}
         }
       },
       "transform": {
         "translate": {
-          "x": -298.031296157837,
-          "y": -147.26208903312687
+          "x": -151.36460914611826,
+          "y": -167.92877604484562
         },
         "scale": 0.75
       },
@@ -1347,7 +1346,9 @@
   "selectedStylePropertyName": "",
   "lvglPart": "MAIN",
   "lvglState": "DEFAULT",
-  "lvglExpandedPropertiesGroup": [],
+  "lvglExpandedPropertiesGroup": [
+    "BACKGROUND"
+  ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
   "flowZoom": 0.75,
