@@ -1410,7 +1410,7 @@ void tick_screen_applist() {
     tick_user_widget_app_entry(66);
     tick_user_widget_app_entry(73);
     {
-        bool new_val = get_var_dispimg_show_warning();
+        bool new_val = get_var_applist_show_warning();
         bool cur_val = lv_obj_has_flag(objects.applist_no_app_label, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.applist_no_app_label;

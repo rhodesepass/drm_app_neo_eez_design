@@ -58,7 +58,8 @@ enum FlowGlobalVariables {
     FLOW_GLOBAL_VARIABLE_DISPIMG_SHOW_WARNING = 8,
     FLOW_GLOBAL_VARIABLE_DISPIMG_PATH = 9,
     FLOW_GLOBAL_VARIABLE_CONFIRM_TITLE = 10,
-    FLOW_GLOBAL_VARIABLE_WARNING_ICON = 11
+    FLOW_GLOBAL_VARIABLE_WARNING_ICON = 11,
+    FLOW_GLOBAL_VARIABLE_APPLIST_SHOW_WARNING = 12
 };
 
 // Native global variables
@@ -97,6 +98,8 @@ extern const char *get_var_confirm_title();
 extern void set_var_confirm_title(const char *value);
 extern const char *get_var_warning_icon();
 extern void set_var_warning_icon(const char *value);
+extern bool get_var_applist_show_warning();
+extern void set_var_applist_show_warning(bool value);
 
 
 #ifdef __cplusplus
