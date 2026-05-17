@@ -13,7 +13,7 @@ extern "C" {
 typedef enum {
     sw_mode_t_SW_MODE_SEQUENCE = 0,
     sw_mode_t_SW_MODE_RANDOM = 1,
-    sw_mode_t_SW_RANDOM_MANUAL = 2
+    sw_mode_t_SW_MODE_MANUAL = 2
 } sw_mode_t;
 
 typedef enum {
@@ -41,7 +41,8 @@ typedef enum {
     usb_mode_t_MTP = 0,
     usb_mode_t_SERIAL = 1,
     usb_mode_t_RNDIS = 2,
-    usb_mode_t_NONE = 3
+    usb_mode_t_NONE = 3,
+    usb_mode_t_EPMANAGER = 4
 } usb_mode_t;
 
 // Flow global variables

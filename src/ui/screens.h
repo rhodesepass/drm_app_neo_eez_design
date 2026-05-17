@@ -49,6 +49,7 @@ typedef struct _objects_t {
     lv_obj_t *obj2__opdesc;
     lv_obj_t *obj2__opname;
     lv_obj_t *obj2__sd_flag_1;
+    lv_obj_t *refresh_oplist_btn;
     lv_obj_t *mainmenu_btn;
     lv_obj_t *obj3;
     lv_obj_t *obj4;

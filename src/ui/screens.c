@@ -50,6 +50,7 @@ static void event_handler_cb_oplist_oplist(lv_event_t *e) {
     if (event == LV_EVENT_SCREEN_LOAD_START) {
         // group: op
         lv_group_remove_all_objs(groups.op);
+        lv_group_add_obj(groups.op, objects.refresh_oplist_btn);
         lv_group_add_obj(groups.op, objects.mainmenu_btn);
     }
 }
@@ -543,11 +544,31 @@ void create_screen_oplist() {
             lv_image_set_src(obj, &img_prts);
         }
         {
+            // refresh_oplist_btn
+            lv_obj_t *obj = lv_button_create(parent_obj);
+            objects.refresh_oplist_btn = obj;
+            lv_obj_set_pos(obj, 17, 327);
+            lv_obj_set_size(obj, 159, 51);
+            lv_obj_add_event_cb(obj, action_refresh_oplist, LV_EVENT_PRESSED, (void *)1);
+            lv_obj_set_style_bg_color(obj, lv_color_hex(0xff149b5b), LV_PART_MAIN | LV_STATE_DEFAULT);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 0, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    add_style_label_large(obj);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "刷新列表");
+                }
+            }
+        }
+        {
             // mainmenu_btn
             lv_obj_t *obj = lv_button_create(parent_obj);
             objects.mainmenu_btn = obj;
-            lv_obj_set_pos(obj, 16, 327);
-            lv_obj_set_size(obj, 330, 51);
+            lv_obj_set_pos(obj, 187, 327);
+            lv_obj_set_size(obj, 157, 51);
             lv_obj_add_event_cb(obj, action_show_menu, LV_EVENT_PRESSED, (void *)1);
             {
                 lv_obj_t *parent_obj = obj;
@@ -1057,7 +1078,7 @@ void create_screen_settings() {
             objects.usbmode_dropdown = obj;
             lv_obj_set_pos(obj, 22, 292);
             lv_obj_set_size(obj, 151, LV_SIZE_CONTENT);
-            lv_dropdown_set_options(obj, "文件(MTP)\nShell(串口)\n网络(rndis)\n仅充电");
+            lv_dropdown_set_options(obj, "文件(MTP)\nShell(串口)\n网络(rndis)\n仅充电\n管理器APP");
             lv_obj_add_event_cb(obj, event_handler_cb_settings_usbmode_dropdown, LV_EVENT_ALL, 0);
             lv_obj_set_style_text_font(obj, &ui_font_sourcesans_reg_14, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_text_font(obj, &ui_font_sourcesans_reg_14, LV_PART_SELECTED | LV_STATE_DEFAULT);
@@ -1352,7 +1373,7 @@ void create_screen_applist() {
                     lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    create_user_widget_app_entry(obj, 66);
+                    create_user_widget_app_entry(obj, 67);
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE);
                     add_style_op_entry(obj);
                 }
@@ -1367,7 +1388,7 @@ void create_screen_applist() {
                     lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    create_user_widget_app_entry(obj, 73);
+                    create_user_widget_app_entry(obj, 74);
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE);
                     add_style_op_entry(obj);
                 }
@@ -1407,8 +1428,8 @@ void create_screen_applist() {
 }
 
 void tick_screen_applist() {
-    tick_user_widget_app_entry(66);
-    tick_user_widget_app_entry(73);
+    tick_user_widget_app_entry(67);
+    tick_user_widget_app_entry(74);
     {
         bool new_val = get_var_applist_show_warning();
         bool cur_val = lv_obj_has_flag(objects.applist_no_app_label, LV_OBJ_FLAG_HIDDEN);

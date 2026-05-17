@@ -10,9 +10,9 @@ extern "C" {
 extern const lv_font_t ui_font_sourcesans_reg_14;
 extern const lv_font_t ui_font_sourceselif_heavy_24;
 extern const lv_font_t ui_font_bebas_40;
+extern const lv_font_t ui_font_fontawesome;
 extern const lv_font_t ui_font_bebas_bold_10;
 extern const lv_font_t ui_font_bebas_bold_72;
-extern const lv_font_t ui_font_fontawesome;
 
 
 #ifdef __cplusplus
